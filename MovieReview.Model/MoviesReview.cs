@@ -13,6 +13,7 @@ namespace MovieReview.Model
         public string ReviewerComments { get; set; }
         public int ReviewerRating { get; set; }
         public int MovieId { get; set; }
+
     }
 
 }
