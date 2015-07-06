@@ -54,6 +54,7 @@
     <Compile Include="MovieReviewUow.cs" />
     <Compile Include="MoviewReviewDatabaseInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieReview.Model\MovieReview.Model.csproj">
