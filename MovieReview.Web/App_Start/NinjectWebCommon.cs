@@ -4,9 +4,11 @@ namespace MovieReview.Web.App_Start
 {
 	using System;
 	using System.Web;
+	using System.Web.Http;
 	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 	using Ninject;
 	using Ninject.Web.Common;
+	using WebApiContrib.IoC.Ninject;
 
 	public static class NinjectWebCommon 
 	{
@@ -42,6 +44,7 @@ namespace MovieReview.Web.App_Start
 				kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
 				kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
+				GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
 				RegisterServices(kernel);
 				return kernel;
 			}
@@ -58,6 +61,9 @@ namespace MovieReview.Web.App_Start
 		/// <param name="kernel">The kernel.</param>
 		private static void RegisterServices(IKernel kernel)
 		{
+			kernel.Bind<MovieReview.Data.RepositoryFactories>().To<MovieReview.Data.RepositoryFactories>().InSingletonScope();
+			kernel.Bind<MovieReview.Data.Contracts.IRepositoryProvider>().To<MovieReview.Data.RepositoryProvider>();
+			kernel.Bind<MovieReview.Data.Contracts.IMovieReviewUow>().To<MovieReview.Data.MovieReviewUow>();
 		}
 	}
 }
