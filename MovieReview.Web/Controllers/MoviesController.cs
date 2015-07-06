@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using MovieReview.Data.Contracts;
 using MovieReview.Model;
@@ -27,20 +29,29 @@ namespace MovieReview.Web.Controllers
 		}
 
 		// POST: api/Moviews
-		public void Post([FromBody]
-						 string value)
+		public HttpResponseMessage Post([FromBody] Movie movie)
 		{
+			Uow.Movies.Add(movie);
+			Uow.Commit();
+
+			return Request.CreateResponse(HttpStatusCode.Created, movie);
 		}
 
 		// PUT: api/Moviews/5
-		public void Put(int id, [FromBody]
-						string value)
+		[HttpPut]
+		public HttpResponseMessage Put([FromBody] Movie movie)
 		{
+			Uow.Movies.Update(movie);
+			Uow.Commit();
+			return new HttpResponseMessage(HttpStatusCode.NoContent);
 		}
 
 		// DELETE: api/Moviews/5
-		public void Delete(int id)
+		public HttpResponseMessage Delete(int id)
 		{
+			Uow.Movies.Delete(id);
+			Uow.Commit();
+			return new HttpResponseMessage(HttpStatusCode.NoContent); 
 		}
 	}
 }
