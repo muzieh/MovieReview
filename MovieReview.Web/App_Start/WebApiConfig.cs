@@ -12,14 +12,25 @@ namespace MovieReview.Web
 			// Web API configuration and services
 			var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
 			config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
 			// Web API routes
-			config
-			.MapHttpAttributeRoutes();
+			config.MapHttpAttributeRoutes();
 
 			config.Routes.MapHttpRoute(
-				name: "DefaultApi",
+				name: "ApiControllerOnly",
+				routeTemplate: "api/{controller}");
+
+			config.Routes.MapHttpRoute(
+				name: "ApiControllerAndIntegerId",
 				routeTemplate: "api/{controller}/{id}",
-				defaults: new { id = RouteParameter.Optional });
+				defaults: null,
+				constraints: new { id = @"^\d+$" }
+				);
+
+			config.Routes.MapHttpRoute(
+				name: "ApiControllerAction",
+				routeTemplate: "api/{controller}/{id}/{action}"
+				);
 		}
 	}
 }

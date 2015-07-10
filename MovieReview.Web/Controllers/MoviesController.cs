@@ -17,9 +17,19 @@ namespace MovieReview.Web.Controllers
 		}
 		
 		// GET: api/Moviews
-		public IEnumerable<Movie> Get()
+		public IQueryable Get()
 		{
-			return this.Uow.Movies.GetAll().OrderBy(s => s.MovieName);
+			var model = Uow.Movies.GetAll().OrderByDescending(m => m.Reviews.Count())
+				.Select(m => new MovieViewModel
+				{
+					Id = m.Id,
+					DirectorName = m.DirectorName,
+					MovieName = m.MovieName,
+					ReleaseYear = m.ReleaseYear,
+					NoOfReviews = m.Reviews.Count()
+				});
+
+			return model;
 		}
 
 		// GET: api/Moviews/5
