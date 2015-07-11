@@ -11,12 +11,10 @@ namespace MovieReview.Web.Controllers
 {
 	public class MoviesController : ApiBaseController 
 	{
-        /*
 		public MoviesController(IMovieReviewUow uow)
 		{
 			this.Uow = uow;
 		}
-        */
 		
 		// GET: api/Moviews
 		public IQueryable Get()

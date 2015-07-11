@@ -62,6 +62,20 @@ namespace MovieReview.Data
         {
             throw new NotImplementedException();
         }
+
+
+        public T GetRepository<T>(Func<DbContext, object> factory = null) where T : class
+        {
+            object repoObj;
+            Repositories.TryGetValue(typeof(T), out repoObj);
+            if (repoObj != null)
+            {
+                return (T)repoObj;
+            }
+
+            // Not found or null; make one, add to dictionary cache, and return it.
+            return MakeRepository<T>(factory, DbContext);
+        }
     }
  
 	public class RepositoryFactories

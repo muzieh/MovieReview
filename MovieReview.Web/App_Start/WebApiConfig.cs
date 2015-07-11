@@ -29,7 +29,7 @@ namespace MovieReview.Web
 
 			config.Routes.MapHttpRoute(
 				name: "ApiControllerAction",
-				routeTemplate: "api/{controller}/{id}/{action}"
+				routeTemplate: "api/{controller}/{action}"
 				);
 		}
 	}

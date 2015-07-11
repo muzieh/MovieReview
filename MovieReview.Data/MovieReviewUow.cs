@@ -39,6 +39,11 @@ namespace MovieReview.Data
 
         private IRepository<T> GetStandardRepo<T>() where T : class
         {
+            return RepositoryProvider.GetRepositoryForEntityType<T>();
+        }
+
+        private T GetRepo<T>() where T : class
+        {
             return RepositoryProvider.GetRepository<T>();
         }
 

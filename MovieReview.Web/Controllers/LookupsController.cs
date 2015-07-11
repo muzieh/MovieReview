@@ -22,27 +22,10 @@ namespace MovieReview.Web.Controllers
 			return this.Uow.Movies.GetAll().OrderBy(m => m.Id);
 		}
 
-		[ActionName("movieReviews")]
-		public IEnumerable<Movie> GetMoviesReviews()
-		{
-			return this.Uow.Movies.GetAll().OrderBy(m => m.Id);
-		}
-
-//		// POST: api/Lookups
-//		public void Post([FromBody]
-//						 string value)
-//		{
-//		}
-
-//		// PUT: api/Lookups/5
-//		public void Put(int id, [FromBody]
-//						string value)
-//		{
-//		}
-
-//		// DELETE: api/Lookups/5
-//		public void Delete(int id)
-//		{
-//		}
+        [ActionName("movieReviews")]
+        public IEnumerable<MoviesReview> GetMoviesReviews()
+        {
+            return Uow.MovieReviews.GetAll().OrderBy(m => m.MovieId);
+        }
 	}
 }

@@ -12,6 +12,6 @@ namespace MovieReview.Data.Contracts
 		DbContext DbContext { get; set; }
 		IRepository<T> GetRepositoryForEntityType<T>() where T : class;
 
-        IRepository<T> GetRepository<T>() where T : class;
+        T GetRepository<T>(Func<DbContext, object> factory = null) where T : class;
     }
 }
