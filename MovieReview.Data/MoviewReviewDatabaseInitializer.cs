@@ -31,7 +31,7 @@ namespace MovieReview.Data
                     ReleaseYear = "1383",
                     Reviews = new List<Model.MoviesReview>() { new Model.MoviesReview() 
                     {
-                        ReviewerName="Kazior", ReviewerRating = 3, ReviewerComments="Superb"
+                        ReviewerName="rahul", ReviewerRating = 3, ReviewerComments="Superb"
                     }}
                 }
 

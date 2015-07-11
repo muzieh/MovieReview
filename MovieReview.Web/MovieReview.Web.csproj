@@ -181,6 +181,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApiWebTests\MovieApi.html" />
+    <Content Include="ApiWebTests\MovieApi.js" />
+    <Content Include="ApiWebTests\qunit-utils.js" />
     <Content Include="App_Data\MoviesReviewProd.mdf" />
     <Content Include="App_Data\MoviesReviewProd_log.ldf">
       <DependentUpon>MoviesReviewProd.mdf</DependentUpon>
@@ -188,6 +191,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="ApiWebTests\qunit.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
@@ -1000,6 +1004,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="ApiWebTests\qunit.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\toastr.js" />
