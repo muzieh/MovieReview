@@ -48,8 +48,8 @@
   <ItemGroup>
     <Compile Include="Contracts\IMovieReviewUow.cs" />
     <Compile Include="Contracts\IRepository.cs" />
-    <Compile Include="EFRepository.cs" />
     <Compile Include="Contracts\IRepositoryProvider.cs" />
+    <Compile Include="EFRepository.cs" />
     <Compile Include="MovieReviewDBContext.cs" />
     <Compile Include="MovieReviewUow.cs" />
     <Compile Include="MoviewReviewDatabaseInitializer.cs" />
